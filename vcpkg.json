@@ -4,6 +4,8 @@
   "builtin-baseline": "4702e381dbbd9b54d3f7e1eb565cd8981c1814cd",
   "dependencies": [
     "fmt",
-    "catch2"
+    "catch2",
+    "glfw3",
+    "glew"
   ]
 }

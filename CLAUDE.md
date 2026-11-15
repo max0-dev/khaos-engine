@@ -4,8 +4,8 @@ C++20 project on Linux: CMake + Ninja + clang, dependencies through vcpkg (manif
 
 ## Project map
 - `core/src` (+ `core/src/include`): library with the logic. Headers in `src/include/`, sources in `src/`, in matching folders.
-- `app/src`: the executable, kept thin.
-- `tests/src`: Catch2 v3 tests, its own target linking `core`. Never add tests to `core` or `app`.
+- `editor/src`: the executable, kept thin.
+- `tests/src`: Catch2 v3 tests, its own target linking `core`. Never add tests to `core` or `editor`.
 - `cmake/ProjectOptions.cmake`: `project_setup_target()` adds warnings and sanitizers. Call it on every new target.
 - Never edit `build/`, `out/`, or `vcpkg/`.
 

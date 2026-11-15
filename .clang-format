@@ -2,3 +2,12 @@ BasedOnStyle: LLVM
 IndentWidth: 4
 ColumnLimit: 100
 PointerAlignment: Left
+
+# Indent everything inside a namespace, so a class's closing }; lines up under it.
+NamespaceIndentation: All
+
+# Too-long calls/signatures: keep `x = f(` together (breaking after = is a last
+# resort), put the arguments on their own indented line and the ) on its own line.
+PenaltyBreakAssignment: 100
+BreakAfterOpenBracketFunction: true
+BreakBeforeCloseBracketFunction: true

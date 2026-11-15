@@ -13,7 +13,13 @@ target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 target_compile_definitions(core PUBLIC $<$<CONFIG:Debug,RelWithDebInfo>:PROJECT_DEBUG>)
 
 find_package(fmt CONFIG REQUIRED)
+find_package(glfw3 CONFIG REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(OpenGL REQUIRED)
 
 target_link_libraries(core PUBLIC
     fmt::fmt
+    glfw
+    GLEW::GLEW
+    OpenGL::GL
 )
