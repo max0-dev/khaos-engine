@@ -1,0 +1,4 @@
+# Lint settings for neocmakelsp (CMake language server).
+# Its line-length check ([C0301], default 80) has no off switch, so the limit is set high enough
+# that it never triggers. C++ line length is handled by ColumnLimit in .clang-format.
+line_max_words = 1000

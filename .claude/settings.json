@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmake --preset:*)",
+      "Bash(cmake --build:*)",
+      "Bash(cmake --workflow:*)",
+      "Bash(ctest:*)"
+    ]
+  }
+}
