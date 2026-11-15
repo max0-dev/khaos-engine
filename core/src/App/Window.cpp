@@ -1,4 +1,5 @@
 #include "khaos/App/Window.h"
+#include "Logging/KCoreLog.h"
 #include <GLFW/glfw3.h>
 #include <cassert>
 #include <utility>
@@ -25,6 +26,7 @@ KhaosCore::Window::Window(WindowContext context) : mContext(std::move(context)) 
     glewExperimental = GL_TRUE;
     GLenum err = glewInit();
     assert(err == GLEW_OK);
+    KLog::Info("Created a window!");
 }
 
 KhaosCore::Window::~Window() {
