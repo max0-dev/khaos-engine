@@ -4,11 +4,18 @@
 
 namespace KhaosCore {
     class App {
-      private:
+      protected:
         std::unique_ptr<Window> mWindow;
+        virtual void Update() {}
+        virtual void Render() {}
 
       public:
         App();
+        App(const App&) = delete;
+        App(App&&) = delete;
+        App& operator=(const App&) = delete;
+        App& operator=(App&&) = delete;
         void Run();
+        virtual ~App() = default;
     };
 } // namespace KhaosCore

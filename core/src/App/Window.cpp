@@ -27,6 +27,10 @@ KhaosCore::Window::Window(WindowContext context) : mContext(std::move(context)) 
     GLenum err = glewInit();
     assert(err == GLEW_OK);
     KLog::Info("Created a window!");
+
+    glfwSetWindowSizeCallback(mPtr, [](GLFWwindow*, int width, int height) {
+        glViewport(0, 0, width, height);
+    });
 }
 
 KhaosCore::Window::~Window() {

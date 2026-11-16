@@ -1,6 +1,9 @@
-#include "khaos/App/App.h"
+#include "khaos/EditorApp.h"
+#include "khaos/Rendering/GLShader.h"
 #include <KHR/khrplatform.h>
+
 int main() {
-    KhaosCore::App app;
+    KhaosEditor::EditorApp app;
+
     app.Run();
 }

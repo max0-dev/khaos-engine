@@ -7,6 +7,7 @@ C++20 project on Linux: CMake + Ninja + clang, dependencies through vcpkg (manif
 - `editor/src`: the executable, kept thin.
 - `tests/src`: Catch2 v3 tests, its own target linking `core`. Never add tests to `core` or `editor`.
 - `cmake/ProjectOptions.cmake`: `project_setup_target()` adds warnings and sanitizers. Call it on every new target.
+- `res/`: runtime assets. GLSL shaders (`.vert`, `.frag`, ...) are checked with glslangValidator (vcpkg `glslang[tools]`) during the build by the `shaders` target (`cmake/Shaders.cmake`), so a shader error fails the build. Then the `copy_res` target copies `res/` to `out/<preset>/res`, next to the editor, which loads files with paths like `res/core/object_lit.vert` (run it from `out/<preset>/`).
 - Never edit `build/`, `out/`, or `vcpkg/`.
 
 ## Build / test

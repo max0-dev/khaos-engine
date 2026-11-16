@@ -6,6 +6,11 @@
     "spdlog",
     "catch2",
     "glfw3",
-    "glew"
+    "glew",
+    {
+      "name": "glslang",
+      "host": true,
+      "features": ["tools"]
+    }
   ]
 }
