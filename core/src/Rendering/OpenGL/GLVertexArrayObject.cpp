@@ -1,5 +1,5 @@
-#include "khaos/Rendering/GLVertexArrayObject.h"
-#include "khaos/Rendering/GLVertexBufferObject.h"
+#include "khaos/Rendering/OpenGL/GLVertexArrayObject.h"
+#include "khaos/Rendering/OpenGL/GLVertexBufferObject.h"
 #include <GL/glew.h>
 #include <cstddef>
 #include <vector>

@@ -1,5 +1,5 @@
 #pragma once
-#include "khaos/Rendering/GLVertexBufferObject.h"
+#include "khaos/Rendering/OpenGL/GLVertexBufferObject.h"
 #include <vector>
 
 namespace KhaosCore {
@@ -39,6 +39,10 @@ namespace KhaosCore {
 
       public:
         VertexArrayObject();
+        VertexArrayObject(const VertexArrayObject&) = delete;
+        VertexArrayObject(VertexArrayObject&&) = delete;
+        VertexArrayObject& operator=(const VertexArrayObject&) = delete;
+        VertexArrayObject& operator=(VertexArrayObject&&) = delete;
         ~VertexArrayObject();
         void Bind() const;
         void AddBuffer(const VertexBufferObject& vbo) const;

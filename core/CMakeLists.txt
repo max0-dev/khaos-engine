@@ -17,10 +17,12 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
+find_package(ftxui CONFIG REQUIRED)
 
 target_link_libraries(core PUBLIC
     glfw
     GLEW::GLEW
     OpenGL::GL
     spdlog::spdlog
+    ftxui::ftxui
 )

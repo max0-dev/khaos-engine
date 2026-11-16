@@ -13,6 +13,15 @@ namespace KhaosCore {
     struct GLProgramDestructor : public IHandleDestructor {
         static void Delete(GLuint handle) { glDeleteProgram(handle); }
     };
+    struct GLFrameBufferDestructor : public IHandleDestructor {
+        static void Delete(GLuint handle) { glDeleteFramebuffers(1, &handle); }
+    };
+    struct GLTextureDestructor : public IHandleDestructor {
+        static void Delete(GLuint handle) { glDeleteTextures(1, &handle); }
+    };
+    struct GLRenderBufferDestructor : public IHandleDestructor {
+        static void Delete(GLuint handle) { glDeleteRenderbuffers(1, &handle); }
+    };
 
     template <class T, std::enable_if_t<std::is_base_of_v<IHandleDestructor, T>, int> = 0>
     class GLHandle {
@@ -38,6 +47,11 @@ namespace KhaosCore {
                 mHandle = handle;
             }
         }
+        GLuint* AssignThroughPtr() {
+            Reset();
+            return &mHandle;
+        }
+        ~GLHandle() { Reset(); }
         [[nodiscard]] GLuint get() const { return mHandle; }
     };
 } // namespace KhaosCore

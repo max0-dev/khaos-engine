@@ -6,7 +6,12 @@
 
 using namespace KhaosCore;
 
-App::App() { mWindow = std::make_unique<Window>(); }
+static App* sInstance = nullptr;
+
+App::App() {
+    mWindow = std::make_unique<Window>();
+    sInstance = this;
+}
 
 void App::Run() {
     while (!mWindow->ShouldClose()) {
@@ -19,3 +24,7 @@ void App::Run() {
         mWindow->SwapBuffers();
     }
 }
+
+App* App::instance() { return sInstance; }
+
+App::~App() { sInstance = nullptr; }

@@ -1,6 +1,6 @@
-#include "khaos/Rendering/GLShader.h"
+#include "khaos/Rendering/OpenGL/GLShader.h"
 #include "Logging/KCoreLog.h"
-#include "khaos/Rendering/GLHandle.h"
+#include "khaos/Rendering/OpenGL/GLHandle.h"
 #include <format>
 #include <fstream>
 #include <sstream>

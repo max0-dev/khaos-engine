@@ -1,4 +1,4 @@
-#include "khaos/Rendering/GLVertexBufferObject.h"
+#include "khaos/Rendering/OpenGL/GLVertexBufferObject.h"
 
 using namespace KhaosCore;
 

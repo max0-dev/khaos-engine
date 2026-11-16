@@ -6,6 +6,7 @@ Checks: >
   performance-*,
   modernize-*,
   -modernize-use-trailing-return-type,
+  -modernize-use-nodiscard,
   readability-else-after-return,
   readability-redundant-*,
   readability-container-size-empty,

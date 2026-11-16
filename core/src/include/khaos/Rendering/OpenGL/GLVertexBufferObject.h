@@ -10,6 +10,10 @@ namespace KhaosCore {
 
       public:
         VertexBufferObject();
+        VertexBufferObject(const VertexBufferObject&) = delete;
+        VertexBufferObject(VertexBufferObject&&) = delete;
+        VertexBufferObject& operator=(const VertexBufferObject&) = delete;
+        VertexBufferObject& operator=(VertexBufferObject&&) = delete;
         ~VertexBufferObject();
         void Bind() const;
         void BufferData(GLsizeiptr size, const void* data, GLenum usage = GL_STATIC_DRAW);

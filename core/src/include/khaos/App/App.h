@@ -1,5 +1,6 @@
 #pragma once
 #include "khaos/App/Window.h"
+#include "khaos/Events/Event.h"
 #include <memory>
 
 namespace KhaosCore {
@@ -15,7 +16,9 @@ namespace KhaosCore {
         App(App&&) = delete;
         App& operator=(const App&) = delete;
         App& operator=(App&&) = delete;
+        static App* instance();
         void Run();
-        virtual ~App() = default;
+        virtual void RaiseEvent(Event&) {}
+        virtual ~App();
     };
 } // namespace KhaosCore

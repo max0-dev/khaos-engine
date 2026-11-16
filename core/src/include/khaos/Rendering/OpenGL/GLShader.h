@@ -1,5 +1,5 @@
 #pragma once
-#include "khaos/Rendering/GLHandle.h"
+#include "khaos/Rendering/OpenGL/GLHandle.h"
 #include <string>
 
 namespace KhaosCore {

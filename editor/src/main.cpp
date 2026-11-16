@@ -1,5 +1,4 @@
 #include "khaos/EditorApp.h"
-#include "khaos/Rendering/GLShader.h"
 #include <KHR/khrplatform.h>
 
 int main() {
