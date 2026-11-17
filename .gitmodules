@@ -1,3 +1,6 @@
 [submodule "vcpkg"]
 	path = vcpkg
 	url = https://github.com/microsoft/vcpkg.git
+[submodule "external/khaos-tui"]
+	path = external/khaos-tui
+	url = https://github.com/max0-dev/khaos-tui.git
