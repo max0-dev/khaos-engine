@@ -15,6 +15,7 @@ find_package(spdlog CONFIG REQUIRED)
 find_package(Stb REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(assimp CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
 
 target_include_directories(core PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/src/include
@@ -30,4 +31,6 @@ target_link_libraries(core PUBLIC
     spdlog::spdlog
     glm::glm
     assimp::assimp
+    imgui::imgui
+    khaos::tui
 )

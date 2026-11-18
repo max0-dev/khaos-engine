@@ -1,8 +1,12 @@
 #include "khaos/App/Window.h"
 #include "Logging/KCoreLog.h"
+#include "khaos/tui/Tui.h"
 #include <GLFW/glfw3.h>
 #include <cassert>
+#include <imgui.h>
 #include <utility>
+#include <imgui_impl_opengl3.h>
+#include <imgui_impl_glfw.h>
 
 KhaosCore::Window::Window() : KhaosCore::Window(WindowContext{}) {}
 
@@ -31,9 +35,26 @@ KhaosCore::Window::Window(WindowContext context) : mContext(std::move(context)) 
     glfwSetWindowSizeCallback(mPtr, [](GLFWwindow*, int width, int height) {
         glViewport(0, 0, width, height);
     });
+
+    ImGui::CreateContext();
+    ImGui::GetIO().IniFilename = nullptr; // the layout comes from code, no imgui.ini
+    ImGui_ImplGlfw_InitForOpenGL(mPtr, true);
+    ImGui_ImplOpenGL3_Init("#version 460"); // the engine's context is 4.6 core
+
+    KhaosTui::Config config;
+    config.FontPath =
+        "/usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf"; // installed on your machine
+    config.FontSize = 20.0F;
+    config.Colors = KhaosTui::Theme::TokyoNight(); // or CatppuccinMocha(), GruvboxDark()
+    // config.KittyThemeFile = "~/.config/kitty/...";   // optional: follows your kitty theme,
+    // reloads live
+    KhaosTui::Init(config);
 }
 
 KhaosCore::Window::~Window() {
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
     glfwDestroyWindow(mPtr);
     glfwTerminate();
 }

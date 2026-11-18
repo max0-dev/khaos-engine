@@ -20,6 +20,7 @@ option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" OFF)
 include(cmake/ProjectOptions.cmake)
 include(cmake/Shaders.cmake)
 
+add_subdirectory(external/khaos-tui)
 add_subdirectory(core)
 add_subdirectory(editor)
 
