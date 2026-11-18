@@ -6,5 +6,9 @@ namespace KhaosEditor {
       private:
         void Update() override;
         void Render() override;
+        void CreateEditorViewport();
+
+      public:
+        EditorApp();
     };
 } // namespace KhaosEditor

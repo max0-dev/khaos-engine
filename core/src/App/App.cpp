@@ -11,6 +11,7 @@ static App* sInstance = nullptr;
 App::App() {
     mWindow = std::make_unique<Window>();
     sInstance = this;
+    mRootNode = std::make_unique<Node>();
 }
 
 void App::Run() {
@@ -25,6 +26,6 @@ void App::Run() {
     }
 }
 
-App* App::instance() { return sInstance; }
+App& App::instance() { return *sInstance; }
 
 App::~App() { sInstance = nullptr; }

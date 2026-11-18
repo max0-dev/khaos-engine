@@ -11,3 +11,7 @@ NamespaceIndentation: All
 PenaltyBreakAssignment: 100
 BreakAfterOpenBracketFunction: true
 BreakBeforeCloseBracketFunction: true
+
+# Keep includes in the order they are written: sorting them breaks headers that
+# must come first (GL/glew.h before GLFW/glfw3.h and GL/gl.h).
+SortIncludes: Never

@@ -1,4 +1,5 @@
 #include "khaos/EditorApp.h"
+#include "khaos/App/App.h"
 #include "khaos/Rendering/OpenGL/GLShader.h"
 #include "khaos/Rendering/OpenGL/GLVertexArrayObject.h"
 #include "khaos/Rendering/OpenGL/GLVertexBufferObject.h"
@@ -7,6 +8,10 @@
 
 using namespace KhaosEditor;
 using namespace KhaosCore;
+
+void EditorApp::CreateEditorViewport() {}
+
+EditorApp::EditorApp() { CreateEditorViewport(); }
 
 void EditorApp::Update() {}
 
