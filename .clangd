@@ -2,6 +2,6 @@
 # links it there from the selected preset's build folder on every configure.
 Diagnostics:
   UnusedIncludes: Strict
-  MissingIncludes: Strict
+  MissingIncludes: None # no hints for symbols that only come in through indirect includes
   ClangTidy:
     FastCheckFilter: Loose # checks are listed in .clang-tidy

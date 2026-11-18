@@ -8,8 +8,8 @@
 using namespace KhaosCore;
 
 RenderTarget::RenderTarget(int width, int height, SamplingMode sampling)
-    : mWidth(width), mHeight(height), mDesiredWidth(width), mDesiredHeight(height),
-      mSampling(sampling) {
+    : mSampling(sampling), mWidth(width), mHeight(height), mDesiredWidth(width),
+      mDesiredHeight(height) {
     if (mSampling == SamplingMode::Single) {
         glGenFramebuffers(1, mRenderFBO.AssignThroughPtr());
         Bind();

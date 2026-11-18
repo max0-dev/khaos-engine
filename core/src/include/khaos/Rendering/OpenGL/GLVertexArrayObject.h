@@ -3,24 +3,24 @@
 #include <vector>
 
 namespace KhaosCore {
-    struct LayoutElement {
+    struct GLLayoutElement {
         unsigned int type;
         unsigned int count;
         bool normalized;
     };
 
-    class VertexArrayLayout {
+    class GLVertexArrayLayout {
       private:
-        std::vector<LayoutElement> mElements;
-        unsigned int mStride;
+        std::vector<GLLayoutElement> mElements;
+        unsigned int mStride{};
 
       public:
-        VertexArrayLayout();
+        GLVertexArrayLayout() = default;
 
         void PushFloat(unsigned int count);
 
-        [[nodiscard]] const std::vector<LayoutElement>& GetElements() const;
-        [[nodiscard]] unsigned int GetStride() const;
+        const std::vector<GLLayoutElement>& GetElements() const;
+        unsigned int GetStride() const;
 
         static unsigned int GetSizeOfType(GLenum type) {
             switch (type) {
@@ -32,20 +32,20 @@ namespace KhaosCore {
         }
     };
 
-    class VertexArrayObject {
+    class GLVertexArrayObject {
       private:
         unsigned int mHandle;
-        VertexArrayLayout mLayout;
+        GLVertexArrayLayout mLayout;
 
       public:
-        VertexArrayObject();
-        VertexArrayObject(const VertexArrayObject&) = delete;
-        VertexArrayObject(VertexArrayObject&&) = delete;
-        VertexArrayObject& operator=(const VertexArrayObject&) = delete;
-        VertexArrayObject& operator=(VertexArrayObject&&) = delete;
-        ~VertexArrayObject();
+        GLVertexArrayObject();
+        GLVertexArrayObject(const GLVertexArrayObject&) = delete;
+        GLVertexArrayObject(GLVertexArrayObject&&) = delete;
+        GLVertexArrayObject& operator=(const GLVertexArrayObject&) = delete;
+        GLVertexArrayObject& operator=(GLVertexArrayObject&&) = delete;
+        ~GLVertexArrayObject();
         void Bind() const;
-        void AddBuffer(const VertexBufferObject& vbo) const;
-        VertexArrayLayout& GetLayout();
+        void AddBuffer(const GLVertexBufferObject& vbo) const;
+        GLVertexArrayLayout& GetLayout();
     };
 } // namespace KhaosCore

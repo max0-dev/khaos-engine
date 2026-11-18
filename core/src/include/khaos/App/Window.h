@@ -25,6 +25,7 @@ namespace KhaosCore {
         ~Window();
 
         [[nodiscard]] bool ShouldClose() const;
+        [[nodiscard]] GLFWwindow* GetNative() const { return mPtr; }
         void SwapBuffers();
     };
 }; // namespace KhaosCore

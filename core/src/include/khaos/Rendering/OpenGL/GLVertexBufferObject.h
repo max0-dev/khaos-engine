@@ -2,23 +2,23 @@
 #include <GL/glew.h>
 #include <cstddef>
 namespace KhaosCore {
-    class VertexBufferObject {
+    class GLVertexBufferObject {
       private:
         unsigned int mHandle;
         size_t mWriteOffset;
         size_t mBufferCapacity;
 
       public:
-        VertexBufferObject();
-        VertexBufferObject(const VertexBufferObject&) = delete;
-        VertexBufferObject(VertexBufferObject&&) = delete;
-        VertexBufferObject& operator=(const VertexBufferObject&) = delete;
-        VertexBufferObject& operator=(VertexBufferObject&&) = delete;
-        ~VertexBufferObject();
+        GLVertexBufferObject();
+        GLVertexBufferObject(const GLVertexBufferObject&) = delete;
+        GLVertexBufferObject(GLVertexBufferObject&&) = delete;
+        GLVertexBufferObject& operator=(const GLVertexBufferObject&) = delete;
+        GLVertexBufferObject& operator=(GLVertexBufferObject&&) = delete;
+        ~GLVertexBufferObject();
         void Bind() const;
         void BufferData(GLsizeiptr size, const void* data, GLenum usage = GL_STATIC_DRAW);
         void BufferSubData(GLintptr offset, GLsizeiptr size, const void* data);
-        [[nodiscard]] size_t GetCapacity() const { return mBufferCapacity; }
-        [[nodiscard]] size_t GetWriteOffset() const { return mWriteOffset; }
+        size_t GetCapacity() const { return mBufferCapacity; }
+        size_t GetWriteOffset() const { return mWriteOffset; }
     };
 } // namespace KhaosCore

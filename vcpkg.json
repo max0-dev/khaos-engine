@@ -7,11 +7,17 @@
     "catch2",
     "glfw3",
     "glew",
+    "glm",
     {
       "name": "glslang",
       "host": true,
       "features": ["tools"]
     },
-    "ftxui"
+    {
+      "name": "imgui",
+      "features": ["glfw-binding", "opengl3-binding", "freetype"]
+    },
+    "stb",
+    "assimp"
   ]
 }

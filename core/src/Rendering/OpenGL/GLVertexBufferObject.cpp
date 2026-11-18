@@ -2,18 +2,18 @@
 
 using namespace KhaosCore;
 
-VertexBufferObject::VertexBufferObject() : mWriteOffset(0), mBufferCapacity(0) {
+GLVertexBufferObject::GLVertexBufferObject() : mWriteOffset(0), mBufferCapacity(0) {
     glGenBuffers(1, &mHandle);
 }
-VertexBufferObject::~VertexBufferObject() { glDeleteBuffers(1, &mHandle); }
-void VertexBufferObject::Bind() const { glBindBuffer(GL_ARRAY_BUFFER, mHandle); }
-void VertexBufferObject::BufferData(GLsizeiptr size, const void* data, GLenum usage) {
+GLVertexBufferObject::~GLVertexBufferObject() { glDeleteBuffers(1, &mHandle); }
+void GLVertexBufferObject::Bind() const { glBindBuffer(GL_ARRAY_BUFFER, mHandle); }
+void GLVertexBufferObject::BufferData(GLsizeiptr size, const void* data, GLenum usage) {
     Bind();
     glBufferData(GL_ARRAY_BUFFER, size, data, usage);
-    mBufferCapacity = size;
+    mBufferCapacity = static_cast<size_t>(size);
 }
-void VertexBufferObject::BufferSubData(GLintptr offset, GLsizeiptr size, const void* data) {
+void GLVertexBufferObject::BufferSubData(GLintptr offset, GLsizeiptr size, const void* data) {
     Bind();
     glBufferSubData(GL_ARRAY_BUFFER, offset, size, data);
-    mWriteOffset += size;
+    mWriteOffset += static_cast<size_t>(size);
 }

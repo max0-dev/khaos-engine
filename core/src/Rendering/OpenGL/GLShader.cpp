@@ -1,6 +1,7 @@
 #include "khaos/Rendering/OpenGL/GLShader.h"
 #include "Logging/KCoreLog.h"
 #include "khaos/Rendering/OpenGL/GLHandle.h"
+#include <cstddef>
 #include <format>
 #include <fstream>
 #include <sstream>
@@ -51,7 +52,7 @@ GLShader::GLShader(std::string vertexPath, std::string fragmentPath) {
         int len;
         glGetShaderiv(vertex.get(), GL_INFO_LOG_LENGTH, &len);
         std::string info_log;
-        info_log.resize(len);
+        info_log.resize(static_cast<size_t>(len));
         glGetShaderInfoLog(vertex.get(), len, &len, &info_log[0]);
         KLog::Warn("Vertex shader compilation error: " + info_log);
         return;
@@ -64,7 +65,7 @@ GLShader::GLShader(std::string vertexPath, std::string fragmentPath) {
         int len;
         glGetShaderiv(fragment.get(), GL_INFO_LOG_LENGTH, &len);
         std::string info_log;
-        info_log.resize(len);
+        info_log.resize(static_cast<size_t>(len));
         glGetShaderInfoLog(fragment.get(), len, &len, &info_log[0]);
         KLog::Warn("Fragment shader compilation error: " + info_log);
         return;
@@ -83,7 +84,7 @@ GLShader::GLShader(std::string vertexPath, std::string fragmentPath) {
         int len;
         glGetProgramiv(mHandle.get(), GL_INFO_LOG_LENGTH, &len);
         std::string info_log;
-        info_log.resize(len);
+        info_log.resize(static_cast<size_t>(len));
         glGetProgramInfoLog(mHandle.get(), len, &len, &info_log[0]);
         KLog::Warn("Shader program validation error: " + info_log);
         mHandle.Reset();
