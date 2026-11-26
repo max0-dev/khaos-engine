@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:learn.microsoft.com)",
+      "WebFetch(domain:en.cppreference.com)",
+      "WebFetch(domain:cmake.org)",
+      "WebFetch(domain:learnvcpkg.com)",
+      "WebFetch(domain:www.glfw.org)",
+      "WebFetch(domain:registry.khronos.org)",
+      "WebFetch(domain:learnopengl.com)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(cmake --preset:*)",
+      "Bash(cmake --build:*)",
+      "Bash(ctest:*)"
+    ]
+  }
+}

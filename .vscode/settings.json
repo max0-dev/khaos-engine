@@ -1,0 +1,20 @@
+{
+  // CMake: drive everything through CMakePresets.json (MSVC + Ninja)
+  "cmake.useCMakePresets": "always",
+  "cmake.configureOnOpen": true,
+
+  // IntelliSense: clangd. Disable the Microsoft engine (cpptools is kept only for its debugger).
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/build",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=never",
+    "--completion-style=detailed"
+  ],
+
+  "files.associations": { "*.inl": "cpp" },
+  "search.exclude": { "vcpkg/**": true, "build/**": true, "out/**": true }
+}
